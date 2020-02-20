@@ -1,0 +1,36 @@
+{
+  "name": "lim011-fe-md-links",
+  "version": "1.0.0",
+  "description": "md-links",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karen753/LIM011-fe-md-links.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bin": {
+    "md-links": "./src/cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/Karen753/LIM011-fe-md-links/issues"
+  },
+  "homepage": "https://github.com/Karen753/LIM011-fe-md-links#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.0",
+    "fetch-mock": "^9.0.0-beta.2",
+    "jest": "^25.1.0"
+  },
+  "dependencies": {
+    "marked": "^0.8.0",
+    "node-fetch": "^2.6.0",
+    "node-fetch-npm": "^2.0.2"
+  }
+}
