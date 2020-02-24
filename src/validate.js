@@ -8,20 +8,20 @@ const validateLinks = (ruta) => {
   const arrayObjects = traeInfoLinks(ruta);
   const arrayPromises = [];
   arrayObjects.forEach((objDelArray) => {
-    const copyOfObjDelArray = { ...objDelArray };
+    const obj = { ...objDelArray };
     arrayPromises.push(fetch(objDelArray.Href).then((res) => {
       if (res.status >= 200 && res.status <= 399) {
-        copyOfObjDelArray.status = res.status;
-        copyOfObjDelArray.statusText = 'ok';
-      } else {
-        copyOfObjDelArray.status = res.status;
-        copyOfObjDelArray.statusText = 'fail';
+        obj.status = res.status;
+        obj.statusText = 'ok';
+        return obj;
       }
-      return copyOfObjDelArray;
+      obj.status = res.status;
+      obj.statusText = 'fail';
+      return obj;
     }).catch(() => {
-      copyOfObjDelArray.status = 'link no valido';
-      copyOfObjDelArray.statusText = 'fail';
-      return copyOfObjDelArray;
+      obj.status = 'link no valido';
+      obj.statusText = 'fail';
+      return obj;
     }));
   });
   return Promise.all(arrayPromises);
