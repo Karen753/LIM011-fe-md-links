@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+
 const path = require('path');
 const fs = require('fs');
 const marked = require('marked');
@@ -31,7 +31,6 @@ const isMDLink = (ruta) => path.extname(ruta) === '.md';
 
 // REVISA UN CARPETA Y TRAE LAS CARPETAS O ARCHIVOS EN UNA RUTA ABSOLUTA
 const getAllPathOfDirectory = (ruta) => fs.readdirSync(ruta, 'utf-8').map((element) => path.resolve(ruta, element));
-// console.log(getAllPathOfDirectory('/home/karen/Escritorio/MD-links/LIM011-fe-md-links/carpetaprueba'));
 
 
 const allFilePaths = (ruta) => {
@@ -73,7 +72,6 @@ const traeInfoLinks = (ruta) => {
   return arrayInfo;
 };
 
-// console.log(traeInfoLinks('/home/karen/Escritorio/MD-links/LIM011-fe-md-links/carpetaprueba/ejemplo.md'));
 
 module.exports = {
   absolutePath,

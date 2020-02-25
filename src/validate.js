@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 const fetch = require('node-fetch');
 const { traeInfoLinks } = require('./index.js');
 
@@ -26,5 +25,5 @@ const validateLinks = (ruta) => {
   });
   return Promise.all(arrayPromises);
 };
-// validateLinks('/home/karen/Escritorio/MD-links/LIM011-fe-md-links/carpetaprueba/ejemplo.md').then((resp) => console.log(resp));
+
 module.exports = { validateLinks };

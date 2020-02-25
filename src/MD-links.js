@@ -13,6 +13,5 @@ const mdLinks = (path, option) => {
   });
   return promesa;
 };
-// mdLinks('/home/karen/Escritorio/MD-links/LIM011-fe-md-links/carpetaprueba/ejemplo.md', { validate: true }).then((resp) => console.log(resp));
 
 module.exports = { mdLinks };
