@@ -3,14 +3,12 @@ const { mdLinks } = require('./MD-links.js');
 const { totalLink, uniqueLink, brokenLink } = require('./stats.js');
 
 const ruta = process.argv[2];
-// console.log(ruta)
 
 const option = {
   validate: process.argv.indexOf('--validate') > 0,
   stats: process.argv.indexOf('--stats') > 0,
-
 };
-// console.log(option.stats);
+
 // uso de iife
 ((path, opt) => {
   if (opt.validate && opt.stats) {
@@ -31,7 +29,13 @@ const option = {
         return console.log(linkValidos);
       });
     }).catch(() => console.error('Ingrese una ruta valida'));
-  }
+  } return mdLinks(path, { validate: false }).then((resp) => {
+    resp.forEach((el) => {
+      let linkInfo = '';
+      linkInfo += `${el.File} ${el.Href} ${el.Text}`;
+      return console.log(linkInfo);
+    });
+  });
 })(ruta, option);
 
 // (function())()

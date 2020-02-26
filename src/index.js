@@ -71,7 +71,9 @@ const traeInfoLinks = (ruta) => {
   });
   return arrayInfo;
 };
-
+console.log(process.cwd());
+console.log(path.join('hola', 'ruta2'));
+ 
 
 module.exports = {
   absolutePath,
