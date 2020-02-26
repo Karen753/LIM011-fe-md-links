@@ -12,30 +12,32 @@ const option = {
 // uso de iife
 ((path, opt) => {
   if (opt.validate && opt.stats) {
-    mdLinks(path, opt).then((resp) => {
+    return mdLinks(path, opt).then((resp) => {
       const statsValidate = `Total: ${totalLink(resp)} \nUnique: ${uniqueLink(resp)} \nBroken: ${brokenLink(resp)}`;
       return console.log(statsValidate);
     }).catch(() => console.error('Ingrese una ruta valida'));
-  } else if (opt.stats) {
-    mdLinks(path, opt.stats).then((resp) => {
+  } if (opt.stats) {
+    return mdLinks(path, opt.stats).then((resp) => {
       const stats = `Total: ${totalLink(resp)} \nUnique: ${uniqueLink(resp)}`;
       return console.log(stats);
     }).catch(() => console.error('Ingrese una ruta valida'));
-  } else if (opt.validate) {
-    mdLinks(path, { validate: true }).then((resp) => {
+  } if (opt.validate) {
+    return mdLinks(path, { validate: true }).then((resp) => {
       resp.forEach((element) => {
         let linkValidos = '';
         linkValidos += `${element.Href} ${element.Text} ${element.status} ${element.statusText}`;
         return console.log(linkValidos);
       });
     }).catch(() => console.error('Ingrese una ruta valida'));
-  } return mdLinks(path, { validate: false }).then((resp) => {
+  }
+  return mdLinks(path, { validate: false }).then((resp) => {
     resp.forEach((el) => {
       let linkInfo = '';
       linkInfo += `${el.File} ${el.Href} ${el.Text}`;
       return console.log(linkInfo);
     });
   });
-})(ruta, option);
+}
+)(ruta, option);
 
 // (function())()
